@@ -1,5 +1,8 @@
 require(rgdal)
 
 path=paste(getwd(), "/Input/Mapbox/features.json", sep="")
-map = readOGR(path, "OGRGeoJSON",  require_geomType="wkbPolygon")
-plot(map)
+Polygons = readOGR(path, "OGRGeoJSON",  require_geomType="wkbPolygon")
+Roads = readOGR(path, "OGRGeoJSON",  require_geomType="wkbLineString")
+
+plot(Roads, col="red")
+plot(Polygons, add=TRUE)
